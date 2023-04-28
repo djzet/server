@@ -12,7 +12,7 @@
             <ul>
                 <?php
                 foreach ($students as $student) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $student->surname . ' ' . $student->name . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $student->surname . ' ' . $student->name . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -21,7 +21,7 @@
             <ul>
                 <?php
                 foreach ($discipline_bodys as $discipline_body) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $discipline_body->hours . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $discipline_body->hours . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -30,7 +30,7 @@
             <ul>
                 <?php
                 foreach ($discipline_bodys as $discipline_body) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $discipline_body->semester . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $discipline_body->semester . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -39,7 +39,7 @@
             <ul>
                 <?php
                 foreach ($discipline_bodys as $discipline_body) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $discipline_body->controlDisciplines->title . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $discipline_body->controlDisciplines->title . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -48,7 +48,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->rating . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->rating . '</div>' . '</li>';
                 }
                 ?>
             </ul>

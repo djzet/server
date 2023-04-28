@@ -17,7 +17,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->title . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->title . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -26,7 +26,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->hours . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->hours . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -35,7 +35,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->semester . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->semester . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -44,7 +44,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->controlDisciplines->title . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->controlDisciplines->title . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -53,7 +53,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->rating . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $rating_discipline->rating . '</div>' . '</li>';
                 }
                 ?>
             </ul>

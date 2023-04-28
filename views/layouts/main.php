@@ -17,13 +17,12 @@ use Src\Auth\Auth;
 <body>
 <header>
     <nav class="link">
-        <div></div>
         <a href="<?= app()->route->getUrl('/') ?>">Главная</a>
         <a href="<?= app()->route->getUrl('/student') ?>">Студенты</a>
         <a href="<?= app()->route->getUrl('/group') ?>">Группы</a>
         <a href="<?= app()->route->getUrl('/discipline') ?>">Дисциплины</a>
         <?php if (Auth::user()->getRole->title === 'admin'): ?>
-        <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+            <a href="<?= app()->route->getUrl('/view') ?>">Просмотр</a>
         <?php endif; ?>
         <?php
         if (!app()->auth::check()):
@@ -41,6 +40,8 @@ use Src\Auth\Auth;
 <main>
     <?= $content ?? '' ?>
 </main>
-<footer></footer>
+<footer>
+    <nav class="link"></nav>
+</footer>
 </body>
 </html>

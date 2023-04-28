@@ -5,7 +5,7 @@
             <ul>
                 <?php
                 foreach ($group_disciplines_views as $group_disciplines_view) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $group_disciplines_view->title . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . $group_disciplines_view->title . '</div>' . '</li>';
                 }
                 ?>
             </ul>

@@ -10,7 +10,7 @@
             <ul>
                 <?php
                 foreach ($disciplines as $discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $discipline->title . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/discipline-view') . '?id=' . $discipline->id . ">" . $discipline->title  . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

@@ -17,29 +17,16 @@ a {
 
 .link {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 1860px;
     height: 50px;
     background-color: #898989;
     border-radius: 5px;
 }
-
-.link > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: #EFEDED;
-    border-radius: 5px;
-    margin-left: 10px
-}
-
 .link > a {
     text-decoration: none;
     color: #FFFFFF;
-    margin-right: 70px;
     font-size: 20px;
 }
 
@@ -48,7 +35,81 @@ main {
     justify-content: center;
     background-color: #D9D9D9;
     margin-top: 10px;
-    height: 829px;
+    height: 932px;
+}
+.info-discipline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1736px;
+    height: 911px;
+    background-color: #898989;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.info-discipline > p {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.info-discipline > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #D9D9D9;
+    width: 1335px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.info-discipline > div > p {
+    font-size: 20px;
+}
+
+.info-discipline > div > p {
+    margin-right: 20px;
+}
+
+.info-discipline > nav {
+    display: flex;
+}
+
+.info-discipline > nav > div {
+    background-color: #D9D9D9;
+    width: 323px;
+    height: 645px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+.info-discipline > nav > div > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-discipline > nav > div > ul > li {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.info-discipline > nav > div > ul > li > div {
+    display: flex;
+    justify-content: center;
+    width: 240px;
+    border-bottom: 2px solid black;
+    font-size: 18px;
+}
+
+.info-discipline > nav > div > ul > li > div > a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
 }
 
 .info-student {
@@ -56,7 +117,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 1736px;
-    height: 805px;
+    height: 911px;
     background-color: #898989;
     border-radius: 5px;
     margin-top: 10px;
@@ -92,7 +153,7 @@ main {
 .info-student > nav > div {
     background-color: #D9D9D9;
     width: 323px;
-    height: 645px;
+    height: 747px;
     border-radius: 5px;
     margin-top: 10px;
     margin-right: 7px;
@@ -117,6 +178,7 @@ main {
     justify-content: center;
     width: 240px;
     border-bottom: 2px solid black;
+    font-size: 18px;
 }
 
 .info-student > nav > div > ul > li > div > a {
@@ -130,7 +192,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 400px;
-    height: 805px;
+    height: 911px;
     background-color: #898989;
     border-radius: 5px;
     margin-top: 10px;
@@ -145,7 +207,7 @@ main {
 .list-group > div {
     background-color: #D9D9D9;
     width: 360px;
-    height: 725px;
+    height: 828px;
     border-radius: 5px;
 }
 
@@ -167,6 +229,7 @@ main {
     justify-content: center;
     width: 240px;
     border-bottom: 2px solid black;
+    font-size: 18px;
 }
 
 .list-group > div > ul > li > div > a {
@@ -180,7 +243,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 1040px;
-    height: 805px;
+    height: 911px;
     background-color: #898989;
     border-radius: 5px;
     margin-top: 10px;
@@ -220,7 +283,7 @@ main {
 .info > nav > div {
     background-color: #D9D9D9;
     width: 323px;
-    height: 645px;
+    height: 748px;
     border-radius: 5px;
     margin-top: 10px;
     margin-right: 7px;
@@ -245,6 +308,7 @@ main {
     justify-content: center;
     width: 240px;
     border-bottom: 2px solid black;
+    font-size: 18px;
 }
 
 .info > nav > div > ul > li > div > a {
@@ -258,7 +322,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 400px;
-    height: 805px;
+    height: 911px;
     background-color: #898989;
     border-radius: 5px;
     margin-top: 10px;
@@ -273,7 +337,7 @@ main {
 .list-discipline > div {
     background-color: #D9D9D9;
     width: 360px;
-    height: 725px;
+    height: 828px;
     border-radius: 5px;
 }
 
@@ -295,6 +359,7 @@ main {
     justify-content: center;
     width: 240px;
     border-bottom: 2px solid black;
+    font-size: 18px;
 }
 
 .list-discipline > div > ul > li > div > a {
@@ -304,7 +369,10 @@ main {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    height: 70px;
     margin-top: 10px;
-    height: 50px;
-    background-color: #898989;
 }
