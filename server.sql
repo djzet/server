@@ -124,26 +124,6 @@ VALUES (1, 1, 1),
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `posts`
---
-
-CREATE TABLE `posts`
-(
-    `id`    int(11) NOT NULL,
-    `title` varchar(255) NOT NULL,
-    `text`  text         NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Дамп данных таблицы `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `text`)
-VALUES (1, 'Существуют 4 основные касты', 'Черные блатные, серые мужики, красные козлы, голубые опущенные');
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `rating_discipline`
 --
 
@@ -236,8 +216,7 @@ CREATE TABLE `users`
 
 INSERT INTO `users` (`id`, `login`, `password`, `role`)
 VALUES (1, 'root', '63a9f0ea7bb98050796b649e85481845', 1),
-       (2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-       (3, 'tur', 'tur', 2);
+       (2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 --
 -- Индексы сохранённых таблиц
