@@ -35,7 +35,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->semester .  '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->semester . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -44,7 +44,7 @@
             <ul>
                 <?php
                 foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->controlDisciplines->title .  '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . '<a href="#">' . $rating_discipline->ratingDisciplines->controlDisciplines->title . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

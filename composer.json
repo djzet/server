@@ -1,25 +1,25 @@
 {
-    "name": "djzet/server",
-    "description": "Server-side practice",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "djzet",
-            "email": "silaevegor2003@mail.ru"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^8.0 | ^8.2",
-        "illuminate/database": "^10.0@dev",
-        "illuminate/events": "^10.0@dev",
-        "nikic/fast-route": "^2.0@dev"
-    },
-    "autoload": {
-        "psr-4": {
-            "Src\\": "core/Src/",
-            "": "app/"
-        }
+  "name": "djzet/server",
+  "description": "Server-side practice",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "djzet",
+      "email": "silaevegor2003@mail.ru"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.0 | ^8.2",
+    "illuminate/database": "^10.0@dev",
+    "illuminate/events": "^10.0@dev",
+    "nikic/fast-route": "^2.0@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Src\\": "core/Src/",
+      "": "app/"
+    }
+  }
 }

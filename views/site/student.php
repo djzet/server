@@ -1,5 +1,5 @@
 <nav class="info">
-    <p>Студенты</p>
+    <p>Студенты (<a href="<?= app()->route->getUrl('/create-student'); ?>">создать</a>)</p>
     <div>
         <p>Студент</p>
         <p>Редактировать</p>
@@ -7,7 +7,7 @@
     </div>
     <nav>
         <div>
-        <ul>
+            <ul>
                 <?php
                 foreach ($students as $student) {
                     echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/progress') . '?id=' . $student->id . ">" . $student->surname . ' ' . $student->name . '</a>' . '</div>' . '</li>';

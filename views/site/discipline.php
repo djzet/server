@@ -1,5 +1,5 @@
 <nav class="info">
-    <p>Дисциплины</p>
+    <p>Дисциплины (<a href="<?= app()->route->getUrl('/create-discipline'); ?>">создать</a>)</p>
     <div>
         <p>Дисциплина</p>
         <p>Редактировать</p>
@@ -19,7 +19,7 @@
             <ul>
                 <?php
                 foreach ($disciplines as $discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Редактировать' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/update-discipline') . '?id=' . $discipline->id . ">" . 'Редактировать' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

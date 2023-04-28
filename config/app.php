@@ -7,5 +7,6 @@ return [
     //Классы для middleware
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
+        'can' => \Middlewares\CanMiddleware::class,
     ]
 ];

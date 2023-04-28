@@ -12,10 +12,10 @@ class UpdateStudent
     public function updateStudent(Request $request): string
     {
         //var_dump($request->all());die();
-        if ($request->method === 'GET'){
+        if ($request->method === 'GET') {
             $students = Student::where('id', $request->id)->first();
         }
-        if ($request->method === 'POST'){
+        if ($request->method === 'POST') {
             $payload = $request->all();
             $students = Student::where('id', $request->id)->update($payload);
             app()->route->redirect('/');

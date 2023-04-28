@@ -17,7 +17,7 @@ class Discipline extends Model
         'title',
         'semester',
         'hours',
-        'control ',
+        'control',
     ];
 
     public function controlDisciplines(): BelongsTo

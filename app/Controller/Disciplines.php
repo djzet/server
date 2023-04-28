@@ -1,8 +1,10 @@
 <?php
 
 namespace Controller;
+
 use Model\Discipline;
 use Src\View;
+
 class Disciplines
 {
     public function showGroups(): string

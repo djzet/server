@@ -19,7 +19,7 @@ class Student extends Model
         'patronymic',
         'gender',
         'date_birth',
-        'group_student ',
+        'group_student',
     ];
 
     public function studentGroups(): BelongsTo

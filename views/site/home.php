@@ -4,7 +4,7 @@
         <ul>
             <?php
             foreach ($groups as $group) {
-                echo '<li>' . '<div>' . '<a href="#">' . $group->number . '</a>' . '</div>' . '</li>';
+                echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/progress-group') . '?id=' . $group->id . ">" . $group->number . '</a>' . '</div>' . '</li>';
             }
             ?>
         </ul>
@@ -31,7 +31,7 @@
             <ul>
                 <?php
                 foreach ($students as $student) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $student->studentGroups->number . '</a>'  . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . '<a href="#">' . $student->studentGroups->number . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -40,7 +40,7 @@
             <ul>
                 <?php
                 foreach ($students as $student) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $student->studentGroups->course . '</a>'  . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . '<a href="#">' . $student->studentGroups->course . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

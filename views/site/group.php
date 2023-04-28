@@ -1,5 +1,5 @@
 <nav class="info">
-    <p>Группы</p>
+    <p>Группы (<a href="<?= app()->route->getUrl('/create-group'); ?>">создать</a>)</p>
     <div>
         <p>Номер группы</p>
         <p>Редактировать</p>
@@ -10,7 +10,7 @@
             <ul>
                 <?php
                 foreach ($groups as $group) {
-                    echo '<li>' . '<div>' . '<a href="#">' . $group->number . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/group-discipline') . '?id=' . $group->id . ">" . $group->number . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>
@@ -19,7 +19,7 @@
             <ul>
                 <?php
                 foreach ($groups as $group) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Редактировать' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/update-group') . '?id=' . $group->id . ">" . 'Редактировать' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

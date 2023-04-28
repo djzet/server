@@ -1,3 +1,8 @@
+<?php
+
+use Src\Auth\Auth;
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +22,9 @@
         <a href="<?= app()->route->getUrl('/student') ?>">Студенты</a>
         <a href="<?= app()->route->getUrl('/group') ?>">Группы</a>
         <a href="<?= app()->route->getUrl('/discipline') ?>">Дисциплины</a>
+        <?php if (Auth::user()->getRole->title === 'admin'): ?>
         <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+        <?php endif; ?>
         <?php
         if (!app()->auth::check()):
             ?>

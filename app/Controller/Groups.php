@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\Group;
 use Src\View;
+
 class Groups
 {
     public function showGroups(): string
