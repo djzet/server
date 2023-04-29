@@ -24,6 +24,7 @@ a {
     background-color: #898989;
     border-radius: 5px;
 }
+
 .link > a {
     text-decoration: none;
     color: #FFFFFF;
@@ -37,6 +38,7 @@ main {
     margin-top: 10px;
     height: 932px;
 }
+
 .info-discipline {
     display: flex;
     flex-direction: column;

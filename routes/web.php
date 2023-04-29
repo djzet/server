@@ -11,12 +11,19 @@ Route::add('GET', '/group', [Controller\Groups::class, 'showGroups'])
 Route::add('GET', '/discipline', [Controller\Disciplines::class, 'showGroups'])
     ->middleware('auth');
 Route::add('GET', '/discipline-view', [Controller\DisciplineView::class, 'discipline'])
-
-
     ->middleware('auth');
 Route::add('GET', '/rating', [Controller\RatingStudent::class, 'rating'])
     ->middleware('auth');
 Route::add('GET', '/rating-group', [Controller\RatingView::class, 'ratingView'])
+    ->middleware('auth');
+Route::add(['GET', 'POST'], '/rating-create', [Controller\RatingCreate::class, 'createRating'])
+    ->middleware('auth');
+
+Route::add(['GET'], '/attach', [Controller\Attach::class, 'attach'])
+    ->middleware('auth');
+Route::add(['GET'], '/attach-group', [Controller\AttachView::class, 'attachView'])
+    ->middleware('auth');
+Route::add(['GET', 'POST'], '/attach-create', [Controller\AttachCreate::class, 'createAttach'])
     ->middleware('auth');
 
 Route::add('GET', '/progress', [Controller\Progress::class, 'progress'])

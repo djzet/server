@@ -18,15 +18,15 @@ class GroupDiscipline extends Model
         'id_discipline'
     ];
 
+    protected static function booted()
+    {
+        static::created(function ($groupDisciplines) {
+            $groupDisciplines->save();
+        });
+    }
+
     public function groupDisciplines(): BelongsTo
     {
         return $this->belongsTo(Discipline::class, 'id_discipline', 'id');
-    }
-
-    protected static function booted()
-    {
-        static::created(function ($group) {
-            $group->save();
-        });
     }
 }

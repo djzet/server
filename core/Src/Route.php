@@ -25,15 +25,14 @@ class Route
     private RouteCollector $routeCollector;
 
     //Добавляет маршрут, устанавливает его текущим и возвращает объект
-    public static function add($httpMethod, string $route, array $action): self
+
+    private function __construct()
     {
-        self::single()->routeCollector->addRoute($httpMethod, $route, $action);
-        self::single()->currentHttpMethod = $httpMethod;
-        self::single()->currentRoute = $route;
-        return self::single();
+        $this->routeCollector = new RouteCollector(new Std(), new MarkBased());
     }
 
     //Добавляет префикс для обозначенных маршрутов
+
     public static function group(string $prefix, callable $callback): void
     {
         self::single()->routeCollector->addGroup($prefix, $callback);
@@ -41,10 +40,6 @@ class Route
     }
 
     //Конструктор скрыт. Вызывается только один раз
-    private function __construct()
-    {
-        $this->routeCollector = new RouteCollector(new Std(), new MarkBased());
-    }
 
     public function setPrefix(string $value = ''): self
     {
@@ -62,11 +57,20 @@ class Route
         return $this->prefix . $url;
     }
 
-    //Добавление middlewares для текущего маршрута
     public function middleware(...$middlewares): self
     {
         Middleware::single()->add($this->currentHttpMethod, $this->currentRoute, $middlewares);
         return $this;
+    }
+
+    //Добавление middlewares для текущего маршрута
+
+    public static function add($httpMethod, string $route, array $action): self
+    {
+        self::single()->routeCollector->addRoute($httpMethod, $route, $action);
+        self::single()->currentHttpMethod = $httpMethod;
+        self::single()->currentRoute = $route;
+        return self::single();
     }
 
     public function start(): void

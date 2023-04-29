@@ -3,7 +3,6 @@
 namespace Controller;
 
 
-
 use Model\User;
 
 class ViewUser

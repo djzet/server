@@ -2,10 +2,10 @@
 
 namespace Src;
 
-use FastRoute\RouteCollector;
-use FastRoute\RouteParser\Std;
 use FastRoute\DataGenerator\MarkBased;
 use FastRoute\Dispatcher\MarkBased as Dispatcher;
+use FastRoute\RouteCollector;
+use FastRoute\RouteParser\Std;
 use Src\Traits\SingletonTrait;
 
 class Middleware
@@ -15,23 +15,25 @@ class Middleware
 
     private RouteCollector $middlewareCollector;
 
+    private function __construct()
+    {
+        $this->middlewareCollector = new RouteCollector(new Std(), new MarkBased());
+    }
+
     public function add($httpMethod, string $route, array $action): void
     {
         $this->middlewareCollector->addRoute($httpMethod, $route, $action);
     }
+
+    //Конструктор скрыт. Вызывается только один раз
 
     public function group(string $prefix, callable $callback): void
     {
         $this->middlewareCollector->addGroup($prefix, $callback);
     }
 
-    //Конструктор скрыт. Вызывается только один раз
-    private function __construct()
-    {
-        $this->middlewareCollector = new RouteCollector(new Std(), new MarkBased());
-    }
-
     //Запуск всех middlewares для текущего маршрута
+
     public function runMiddlewares(string $httpMethod, string $uri): Request
     {
         $request = new Request();

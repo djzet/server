@@ -1,5 +1,5 @@
 <nav class="info-student">
-    <p>Номер группы</p>
+    <p>Номер группы (оценки)</p>
     <nav>
         <div>
             <ul>

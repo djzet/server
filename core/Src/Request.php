@@ -6,9 +6,9 @@ use Error;
 
 class Request
 {
-    protected array $body;
     public string $method;
     public array $headers;
+    protected array $body;
 
     public function __construct()
     {
@@ -22,6 +22,11 @@ class Request
         return $this->body + $this->files();
     }
 
+    public function files(): array
+    {
+        return $_FILES;
+    }
+
     public function set($field, $value): void
     {
         $this->body[$field] = $value;
@@ -30,11 +35,6 @@ class Request
     public function get($field)
     {
         return $this->body[$field];
-    }
-
-    public function files(): array
-    {
-        return $_FILES;
     }
 
     public function __get($key)

@@ -1,57 +1,21 @@
-<nav class="info-student">
-    <p>Оценки студента - <?= $student_names['surname'] . ' ' . $student_names['name'] ?>&emsp;( Группа - <?= $groups['number'] ?> )</p>
-    <div>
-        <p>Дисциплина</p>
-        <p>Часы</p>
-        <p>Семестр</p>
-        <p>Контроль</p>
-        <p>Оценка</p>
-    </div>
-    <nav>
-        <div>
-            <ul>
-                <?php
-                foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->title. '</div>' . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <?php
-                foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->semester . '</div>' . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <?php
-                foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->hours . '</div>' . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <?php
-                foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . $rating_discipline->ratingDisciplines->controlDisciplines->title . '</div>' . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <?php
-                foreach ($rating_disciplines as $rating_discipline) {
-                    echo '<li>' . '<div>' . $rating_discipline->rating . '</div>' . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-    </nav>
-</nav>
+<div class="div-form">
+    <p>Выставить оценку <?= $students['surname'] . ' ' . $students['name'] ?></p>
+    <h3><?= $message ?? ''; ?></h3>
+    <form action="" method="post">
+        <lable for="id_discipline">
+            <select id="id_discipline" name="id_discipline">
+                <?php foreach ($group_disciplines as $group_discipline) { ?>
+                    <option
+                            value="<?= $group_discipline->id_discipline ?>"
+                    ><?= $group_discipline->groupDisciplines->title ?></option>
+                <?php } ?>
+            </select>
+        </lable>
+        <label for="rating"><input type="text" name="rating" placeholder="Оценка"></label>
+        <label for="id_student"><input type="text" name="id_student"
+                                       value="<?= $rating_disciplines['id_student'] = $students['id'] ?>"
+                                       placeholder="<?= $students['surname'] . ' ' . $students['name'] ?>"
+                                       disabled></label>
+        <button>Выствить</button>
+    </form>
+</div>

@@ -5,7 +5,6 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class RatingDiscipline extends Model
@@ -20,15 +19,15 @@ class RatingDiscipline extends Model
         'id_student'
     ];
 
+    protected static function booted()
+    {
+        static::created(function ($rating_discipline) {
+            $rating_discipline->save();
+        });
+    }
+
     public function ratingDisciplines(): BelongsTo
     {
         return $this->belongsTo(Discipline::class, 'id_discipline', 'id');
-    }
-
-    protected static function booted()
-    {
-        static::created(function ($rating) {
-            $rating->save();
-        });
     }
 }

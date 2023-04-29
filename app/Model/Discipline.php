@@ -20,15 +20,15 @@ class Discipline extends Model
         'control',
     ];
 
-    public function controlDisciplines(): BelongsTo
-    {
-        return $this->belongsTo(Control::class, 'control', 'id');
-    }
-
     protected static function booted()
     {
         static::created(function ($discipline) {
             $discipline->save();
         });
+    }
+
+    public function controlDisciplines(): BelongsTo
+    {
+        return $this->belongsTo(Control::class, 'control', 'id');
     }
 }

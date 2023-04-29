@@ -29,17 +29,16 @@ class View
     }
 
     //Путь до основного файла с шаблоном сайта
-    private function getPathToMain(): string
+
+    /**
+     * @throws Exception
+     */
+    public function __toString(): string
     {
-        return $this->root . $this->layout;
+        return $this->render($this->view, $this->data);
     }
 
     //Путь до текущего шаблона
-    private function getPathToView(string $view = ''): string
-    {
-        $view = str_replace('.', '/', $view);
-        return $this->getRoot() . "/$view.php";
-    }
 
     /**
      * @throws Exception
@@ -65,12 +64,15 @@ class View
         throw new Exception('Error render ViewUser');
     }
 
-    /**
-     * @throws Exception
-     */
-    public function __toString(): string
+    private function getPathToView(string $view = ''): string
     {
-        return $this->render($this->view, $this->data);
+        $view = str_replace('.', '/', $view);
+        return $this->getRoot() . "/$view.php";
+    }
+
+    private function getPathToMain(): string
+    {
+        return $this->root . $this->layout;
     }
 
 }
