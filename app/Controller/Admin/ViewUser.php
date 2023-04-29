@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controller\Admin;
 
 
 use Model\User;

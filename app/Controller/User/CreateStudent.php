@@ -1,20 +1,22 @@
 <?php
 
-namespace Controller;
+namespace Controller\User;
 
 use Model\Group;
+use Model\Student;
 use Src\Request;
 use Src\View;
 
-class CreateGroup
+class CreateStudent
 {
-    public function createGroup(Request $request): string
+    public function createStudent(Request $request): string
     {
+        $groups = Group::all();
         //var_dump($request->all());die();
         if ($request->method === 'POST') {
             //$request->group_student = (int) $request->group_student;
             //var_dump($request->all());die();
-            Group::create($request->all());
+            Student::create($request->all());
 //            $student = new Student();
 //            $student->surname = $request->surname;
 //            $student->name = $request->name;
@@ -27,6 +29,6 @@ class CreateGroup
             app()->route->redirect('/');
         }
 
-        return (new View())->render('site.create-group');
+        return (new View())->render('site.create-student', ['groups' => $groups]);
     }
 }
