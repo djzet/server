@@ -8,5 +8,17 @@ return [
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
         'can' => \Middlewares\CanMiddleware::class,
-    ]
+    ],
+    'validators' => [
+        'required' => \Validators\RequireValidator::class,
+        'unique' => \Validators\UniqueValidator::class,
+        'cyrillic' => \Validators\CyrillicValidator::class,
+        'latin' => \Validators\LatinValidator::class,
+        'number' => \Validators\NumberValidator::class,
+    ],
+    'routeAppMiddleware' => [
+        'csrf' => \Middlewares\CSRFMiddleware::class,
+        'trim' => \Middlewares\TrimMiddleware::class,
+        'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
+    ],
 ];

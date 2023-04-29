@@ -2,6 +2,7 @@
     <p>Выставить оценку <?= $students['surname'] . ' ' . $students['name'] ?></p>
     <h3><?= $message ?? ''; ?></h3>
     <form action="" method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <lable for="id_discipline">
             <select id="id_discipline" name="id_discipline">
                 <?php foreach ($group_disciplines as $group_discipline) { ?>
@@ -15,7 +16,7 @@
         <label for="id_student"><input type="text" name="id_student"
                                        value="<?= $rating_disciplines['id_student'] = $students['id'] ?>"
                                        placeholder="<?= $students['surname'] . ' ' . $students['name'] ?>"
-                                       disabled></label>
+                                       hidden></label>
         <button>Выствить</button>
     </form>
 </div>

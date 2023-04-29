@@ -21,8 +21,10 @@ use Src\Auth\Auth;
         <a href="<?= app()->route->getUrl('/student') ?>">Студенты</a>
         <a href="<?= app()->route->getUrl('/group') ?>">Группы</a>
         <a href="<?= app()->route->getUrl('/discipline') ?>">Дисциплины</a>
-        <a href="<?= app()->route->getUrl('/rating') ?>">Оценки</a>
-        <a href="<?= app()->route->getUrl('/attach') ?>">Прикрепление</a>
+        <?php if (Auth::user()->getRole->title === 'user'): ?>
+            <a href="<?= app()->route->getUrl('/rating') ?>">Оценки</a>
+            <a href="<?= app()->route->getUrl('/attach') ?>">Прикрепление</a>
+        <?php endif; ?>
         <?php if (Auth::user()->getRole->title === 'admin'): ?>
             <a href="<?= app()->route->getUrl('/view') ?>">Просмотр</a>
         <?php endif; ?>

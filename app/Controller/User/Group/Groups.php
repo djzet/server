@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\User;
+namespace Controller\User\Group;
 
 use Model\Group;
 use Src\View;

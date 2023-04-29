@@ -1,33 +1,34 @@
 <?php
 
-namespace Controller\Admin;
+namespace Controller\User\Create;
 
-use Src\Validator\Validator;
-use Model\User;
+use Model\Group;
+use Model\Student;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
-class Create
+class CreateGroup
 {
-    public function create(Request $request): string
+    public function createGroup(Request $request): string
     {
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'login' => ['required', 'unique:users,login', 'latin'],
-                'password' => ['required']
+                'number' => ['required', 'unique:groups,number', 'number'],
+                'course' => ['required', 'number'],
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
-                'latin' => 'Поле :field должго состоять из латиници',
+                'number' => 'Поле :field должно быть числом',
             ]);
             if ($validator->fails()) {
-                return new View('site.create',
+                return new View('site.create-group',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
-            if (User::create($request->all())) {
+            if (Group::create($request->all())) {
                 app()->route->redirect('/');
             }
         }
-        return new View('site.create');
+        return (new View())->render('site.create-group');
     }
 }

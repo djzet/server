@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\User;
+namespace Controller\User\Rating;
 
 
 use Model\Student;

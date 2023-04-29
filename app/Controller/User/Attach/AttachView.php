@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\User;
+namespace Controller\User\Attach;
 
 
 use Model\Discipline;

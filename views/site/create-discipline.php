@@ -2,6 +2,7 @@
     <p>Создать дисциплину</p>
     <h3><?= $message ?? ''; ?></h3>
     <form action="" method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label for="title"><input type="text" name="title" placeholder="Название" value="<?= $disciplines['title'] ?>"></label>
         <label for="semester"><input type="text" name="semester" placeholder="Семестр"
                                      value="<?= $disciplines['semester'] ?>"></label>

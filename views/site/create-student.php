@@ -2,6 +2,7 @@
     <p>Создание студента</p>
     <h3><?= $message ?? ''; ?></h3>
     <form action="" method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label for="surname"><input type="text" name="surname" placeholder="Фамилия"></label>
         <label for="name"><input type="text" name="name" placeholder="Имя"></label>
         <label for="patronymic"><input type="text" name="patronymic" placeholder="Отчество"></label>

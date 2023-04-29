@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\User;
+namespace Controller\User\Discipline;
 
 use Model\Discipline;
 use Src\Request;

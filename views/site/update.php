@@ -2,6 +2,7 @@
     <p>Редактирование пользователя</p>
     <h3><?= $message ?? ''; ?></h3>
     <form action="" method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label for="login"><input type="text" name="login" placeholder="Логин" value="<?= $users['login'] ?>"></label>
         <label for="group_student">
             <select id="group_student" name="role">
