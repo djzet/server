@@ -15,6 +15,7 @@ return [
         'cyrillic' => \Validators\CyrillicValidator::class,
         'latin' => \Validators\LatinValidator::class,
         'number' => \Validators\NumberValidator::class,
+        'count' => \Validators\CountValidator::class,
     ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,

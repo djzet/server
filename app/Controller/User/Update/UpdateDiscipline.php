@@ -4,7 +4,6 @@ namespace Controller\User\Update;
 
 use Model\Control;
 use Model\Discipline;
-use Model\Student;
 use Src\Request;
 use Src\Validator\Validator;
 use Src\View;

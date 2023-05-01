@@ -2,7 +2,6 @@
 
 namespace Controller\Admin;
 
-use Model\Discipline;
 use Model\Role;
 use Model\User;
 use Src\Request;

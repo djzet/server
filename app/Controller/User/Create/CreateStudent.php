@@ -4,7 +4,6 @@ namespace Controller\User\Create;
 
 use Model\Group;
 use Model\Student;
-use Model\User;
 use Src\Request;
 use Src\Validator\Validator;
 use Src\View;

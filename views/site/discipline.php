@@ -28,7 +28,7 @@
             <ul>
                 <?php
                 foreach ($disciplines as $discipline) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Удалить' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/delete-discipline') . '?id=' . $discipline->id . ">" . 'Удалить' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

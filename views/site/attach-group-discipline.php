@@ -4,9 +4,9 @@
     <form action="" method="post">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label for="id_group"><input type="text" name="id_group" placeholder="<?= $groups['number'] ?>"
-                                     value="<?= $groups['id'] ?>"></label>
+                                     value="<?= $groups['id'] ?>" hidden=""></label>
         <label for="id_discipline"><input type="text" name="id_discipline" placeholder="<?= $disciplines['title'] ?>"
-                                          value="<?= $disciplines['id'] ?>"></label>
+                                          value="<?= $disciplines['id'] ?>" hidden=""></label>
         <button>Прикрепить</button>
     </form>
 </div>

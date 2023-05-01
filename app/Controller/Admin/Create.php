@@ -2,9 +2,9 @@
 
 namespace Controller\Admin;
 
-use Src\Validator\Validator;
 use Model\User;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
 class Create

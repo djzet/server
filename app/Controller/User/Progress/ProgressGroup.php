@@ -16,7 +16,7 @@ class ProgressGroup
     {
         $group_disciplines = GroupDiscipline::where('id_group', $request->id)->get();
         $students = Student::where('group_student', $request->id)->get();
-        if ($request->headers['Referer'] === 'http://192.168.13.64/server/') {
+        if ($request->headers['Referer'] === 'http://localhost/server/') {
             return (new View())->render('site.progress-group', ['group_disciplines' => $group_disciplines]);
         } else {
             $groups = Group::where('id', $request->id)->first();

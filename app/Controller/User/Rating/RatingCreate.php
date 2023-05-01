@@ -22,11 +22,12 @@ class RatingCreate
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
                 'id_discipline' => ['required'],
-                'rating' => ['required', 'number'],
+                'rating' => ['required', 'number', 'count'],
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
                 'number' => 'Поле :field должно быть числом',
+                'count' => 'Поле :field должно быть цифрой от 1 до 5',
             ]);
             if ($validator->fails()) {
                 return new View('site.rating-group-student',

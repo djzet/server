@@ -17,15 +17,19 @@ use Src\Auth\Auth;
 <body>
 <header>
     <nav class="link">
-        <a href="<?= app()->route->getUrl('/') ?>">Главная</a>
-        <a href="<?= app()->route->getUrl('/student') ?>">Студенты</a>
-        <a href="<?= app()->route->getUrl('/group') ?>">Группы</a>
-        <a href="<?= app()->route->getUrl('/discipline') ?>">Дисциплины</a>
-        <?php if (Auth::user()->getRole->title === 'user'): ?>
+        <?php
+        if (Auth::user()->getRole->title === null || Auth::user()->getRole->title !== null): ?>
+            <a href="<?= app()->route->getUrl('/') ?>">Главная</a>
+            <a href="<?= app()->route->getUrl('/student') ?>">Студенты</a>
+            <a href="<?= app()->route->getUrl('/group') ?>">Группы</a>
+            <a href="<?= app()->route->getUrl('/discipline') ?>">Дисциплины</a>
+        <?php endif; ?>
+        <?php
+        if (Auth::user()->getRole->title === 'user' && Auth::user()->getRole->title !== null): ?>
             <a href="<?= app()->route->getUrl('/rating') ?>">Оценки</a>
             <a href="<?= app()->route->getUrl('/attach') ?>">Прикрепление</a>
         <?php endif; ?>
-        <?php if (Auth::user()->getRole->title === 'admin'): ?>
+        <?php if (Auth::user()->getRole->title === 'admin' && Auth::user()->getRole->title !== null): ?>
             <a href="<?= app()->route->getUrl('/view') ?>">Просмотр</a>
         <?php endif; ?>
         <?php

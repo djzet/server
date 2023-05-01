@@ -5,7 +5,6 @@ namespace Controller\User\Attach;
 use Model\Discipline;
 use Model\Group;
 use Model\GroupDiscipline;
-use Model\RatingDiscipline;
 use Src\Request;
 use Src\Validator\Validator;
 use Src\View;
@@ -28,7 +27,7 @@ class AttachCreate
                 return new View('site.attach-group-discipline',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'groups' => $groups, 'disciplines' => $disciplines]);
             }
-            if ( GroupDiscipline::create($request->all())) {
+            if (GroupDiscipline::create($request->all())) {
                 app()->route->redirect('/');
             }
         }

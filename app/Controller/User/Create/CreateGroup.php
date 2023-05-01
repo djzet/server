@@ -3,7 +3,6 @@
 namespace Controller\User\Create;
 
 use Model\Group;
-use Model\Student;
 use Src\Request;
 use Src\Validator\Validator;
 use Src\View;

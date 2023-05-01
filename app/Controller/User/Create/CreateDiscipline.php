@@ -4,7 +4,6 @@ namespace Controller\User\Create;
 
 use Model\Control;
 use Model\Discipline;
-use Model\Group;
 use Src\Request;
 use Src\Validator\Validator;
 use Src\View;

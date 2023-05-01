@@ -28,7 +28,7 @@
             <ul>
                 <?php
                 foreach ($groups as $group) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Удалить' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/delete-group') . '?id=' . $group->id . ">" . 'Удалить' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

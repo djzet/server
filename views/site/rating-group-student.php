@@ -12,7 +12,7 @@
                 <?php } ?>
             </select>
         </lable>
-        <label for="rating"><input type="text" name="rating" placeholder="Оценка"></label>
+        <label for="rating"><input type="number" name="rating" placeholder="Оценка"></label>
         <label for="id_student"><input type="text" name="id_student"
                                        value="<?= $rating_disciplines['id_student'] = $students['id'] ?>"
                                        placeholder="<?= $students['surname'] . ' ' . $students['name'] ?>"

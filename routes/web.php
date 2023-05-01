@@ -65,3 +65,9 @@ Route::add(['GET', 'POST'], '/create-discipline', [\Controller\User\Create\Creat
 //login
 Route::add(['GET', 'POST'], '/login', [\Controller\User\Login::class, 'login']);
 Route::add('GET', '/logout', [\Controller\User\Logout::class, 'logout']);
+
+//delete
+Route::add(['GET', 'POST'], '/delete', [\Controller\Admin\Delete::class, 'deleteUser']);
+Route::add(['GET', 'POST'], '/delete-student', [\Controller\User\Delete\DeleteStudent::class, 'deleteStudent']);
+Route::add(['GET', 'POST'], '/delete-group', [\Controller\User\Delete\DeleteGroup::class, 'deleteGroup']);
+Route::add(['GET', 'POST'], '/delete-discipline', [\Controller\User\Delete\DeleteDiscipline::class, 'deleteDiscipline']);

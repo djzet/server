@@ -28,7 +28,7 @@
             <ul>
                 <?php
                 foreach ($users as $user) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Удалить' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/delete') . '?id=' . $user->id . ">" . 'Удалить' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>

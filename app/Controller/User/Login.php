@@ -2,7 +2,6 @@
 
 namespace Controller\User;
 
-use Model\User;
 use Src\Auth\Auth;
 use Src\Request;
 use Src\Validator\Validator;

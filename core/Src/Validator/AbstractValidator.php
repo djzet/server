@@ -37,6 +37,11 @@ abstract class AbstractValidator
     }
 
     //Замена ключей на конкретные значения в сообщении об ошибке
+
+    abstract public function rule(): bool;
+
+    //Основное правило валидации. Его должны переопределить классы-потомки
+
     private function messageError(): string
     {
         foreach ($this->messageKeys as $key => $value) {
@@ -44,7 +49,4 @@ abstract class AbstractValidator
         }
         return $message;
     }
-
-    //Основное правило валидации. Его должны переопределить классы-потомки
-    abstract public function rule(): bool;
 }

@@ -28,7 +28,7 @@
             <ul>
                 <?php
                 foreach ($students as $student) {
-                    echo '<li>' . '<div>' . '<a href="#">' . 'Удалить' . '</a>' . '</div>' . '</li>';
+                    echo '<li>' . '<div>' . "<a href=" . app()->route->getUrl('/delete-student') . '?id=' . $student->id . ">" . 'Удалить' . '</a>' . '</div>' . '</li>';
                 }
                 ?>
             </ul>
