@@ -26,6 +26,7 @@ class Create
             }
             if (User::create($request->all())) {
                 app()->route->redirect('/');
+                return false;
             }
         }
         return new View('site.create');
