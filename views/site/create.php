@@ -11,6 +11,7 @@
                 <option value="2">Пользователь</option>
             </select>
         </label>
+        <label for="token"><input type="text" name="token" hidden></label>
         <button>Зарегистрировать</button>
     </form>
 </div>

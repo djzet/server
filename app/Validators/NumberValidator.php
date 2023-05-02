@@ -11,6 +11,6 @@ class NumberValidator extends AbstractValidator
 
     public function rule(): bool
     {
-        return preg_match("/^[0-9]+$/", $this->value);
+        return preg_match("/^([0-9]+)$/u", $this->value);
     }
 }

@@ -2,6 +2,7 @@
 
 use Model\User;
 use PHPUnit\Framework\TestCase;
+use Src\Auth\Auth;
 
 class SiteTest extends TestCase
 {
@@ -11,8 +12,9 @@ class SiteTest extends TestCase
      */
     public function testSignup(string $httpMethod, array $userData, string $message): void
     {
+
         //Выбираем занятый логин из базы данных
-        if ($userData['login'] === 'login is busy') {
+        if ($userData['login'] === 'root') {
             $userData['login'] = User::get()->first()->login;
         }
 
@@ -47,13 +49,13 @@ class SiteTest extends TestCase
     {
         return [
             ['GET', ['name' => '', 'login' => '', 'password' => ''],
-                '<pre></pre>'
+                '<h3></h3>'
             ],
             ['POST', ['name' => '', 'login' => '', 'password' => ''],
-                '<pre>{"name":["Поле name пусто"],"login":["Поле login пусто"],"password":["Поле password пусто"]}</pre>',
+                '<h3>{"name":["Поле name пусто"],"login":["Поле login пусто"],"password":["Поле password пусто"]}</h3>',
             ],
             ['POST', ['name' => 'admin', 'login' => 'login is busy', 'password' => 'admin'],
-                '<pre>{"login":["Поле login должно быть уникально"]}</pre>',
+                '<h3>{"login":["Поле login должно быть уникально"]}</h3>',
             ],
             ['POST', ['name' => 'admin', 'login' => md5(time()), 'password' => 'admin'],
                 'Location: /server/',
@@ -78,6 +80,10 @@ class SiteTest extends TestCase
                 return $GLOBALS['app'];
             }
         }
+        Auth::attempt([
+            'login' => 'root',
+            'password' => md5('root')
+        ]);
     }
 
 }

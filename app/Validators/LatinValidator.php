@@ -10,6 +10,6 @@ class LatinValidator extends AbstractValidator
 
     public function rule(): bool
     {
-        return preg_match("/^[A-z-]+$/", $this->value);
+        return preg_match("/^([a-zA-Z]+)$/u", $this->value);
     }
 }
