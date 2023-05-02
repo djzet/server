@@ -29,11 +29,11 @@ class Update
                 return new View('site.update',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'roles' => $roles]);
             }
-            $payload = $request->all();
-            $users = User::where('id', $request->id)->update($payload);
-            app()->route->redirect('/');
+            if (User::where('id', $request->id)->update($request->all())){
+                app()->route->redirect('/');
+                return false;
+            }
         }
-
         return (new View())->render('site.update', ['users' => $users, 'roles' => $roles]);
     }
 }

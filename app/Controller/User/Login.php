@@ -30,6 +30,7 @@ class Login
             //Если удалось аутентифицировать пользователя, то редирект
             if (Auth::attempt($request->all())) {
                 app()->route->redirect('/');
+                return false;
             }
         }
 

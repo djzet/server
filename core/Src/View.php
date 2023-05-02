@@ -61,7 +61,7 @@ class View
             //Возвращаем собранную страницу
             return require($this->getPathToMain());
         }
-        throw new Exception('Error render ViewUser');
+        throw new Exception($path);
     }
 
     private function getPathToView(string $view = ''): string

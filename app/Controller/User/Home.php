@@ -14,7 +14,6 @@ class Home
         $students = Student::all();
         $groups = Group::all();
         $disciplines = Discipline::all();
-//        var_dump(app()->auth::user()->role); die();
         return (new View())->render('site.home', ['students' => $students, 'groups' => $groups, 'disciplines' => $disciplines]);
     }
 }

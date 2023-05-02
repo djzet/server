@@ -2,15 +2,15 @@
 
 use Model\User;
 use PHPUnit\Framework\TestCase;
-use Src\Auth\Auth;
 
-class SiteTest extends TestCase
+
+class CreateTest extends TestCase
 {
     /**
      * @dataProvider additionProvider
      * @runInSeparateProcess
      */
-    public function testSignup(string $httpMethod, array $userData, string $message): void
+    public function testCreate(string $httpMethod, array $userData, string $message): void
     {
 
         //Выбираем занятый логин из базы данных
@@ -42,22 +42,35 @@ class SiteTest extends TestCase
         User::where('login', $userData['login'])->delete();
 
         $this->assertContains($message, xdebug_get_headers());
+
     }
 
     //Метод, возвращающий набор тестовых данных
-    public function additionProvider(): array
+    static public function additionProvider(): array
     {
         return [
-            ['GET', ['name' => '', 'login' => '', 'password' => ''],
+            ['GET', ['login' => '', 'password' => ''],
                 '<h3></h3>'
             ],
-            ['POST', ['name' => '', 'login' => '', 'password' => ''],
-                '<h3>{"name":["Поле name пусто"],"login":["Поле login пусто"],"password":["Поле password пусто"]}</h3>',
+            ['POST', ['login' => '', 'password' => ''],
+                '<h3>{"login":["Поле login пусто","Поле login должго состоять из латиници"],"password":["Поле password пусто"]}</h3>',
             ],
-            ['POST', ['name' => 'admin', 'login' => 'login is busy', 'password' => 'admin'],
+            ['POST', ['login' => '123', 'password' => '123'],
+                '<h3>{"login":["Поле login должго состоять из латиници"]}</h3>',
+            ],
+            ['POST', ['login' => '123', 'password' => ''],
+                '<h3>{"login":["Поле login должго состоять из латиници"],"password":["Поле password пусто"]}</h3>',
+            ],
+            ['POST', ['login' => 'qwe', 'password' => ''],
+                '<h3>{"password":["Поле password пусто"]}</h3>',
+            ],
+            ['POST', ['login' => '', 'password' => '123'],
+                '<h3>{"login":["Поле login пусто","Поле login должго состоять из латиници"]}</h3>',
+            ],
+            ['POST', ['login' => 'root', 'password' => md5('root')],
                 '<h3>{"login":["Поле login должно быть уникально"]}</h3>',
             ],
-            ['POST', ['name' => 'admin', 'login' => md5(time()), 'password' => 'admin'],
+            ['POST', ['login' => 'admin', 'password' => 'admin'],
                 'Location: /server/',
             ],
         ];
@@ -68,10 +81,13 @@ class SiteTest extends TestCase
     {
 
         //Установка переменых среды
-        $_SERVER['REQUEST_URI'] = '';
+        $_SERVER['DOCUMENT_ROOT'] = '/var/www/html';
+
 
         //Создаем экземпляр приложения
-        $GLOBALS['app'] = new Src\Application(include __DIR__. '/../config/app.php');
+        $settings = include $_SERVER['DOCUMENT_ROOT'] . '/server/config/app.php';
+
+        $GLOBALS['app'] = new Src\Application((array) $settings);
 
         //Глобальная функция для доступа к объекту приложения
         if (!function_exists('app')) {
@@ -80,10 +96,5 @@ class SiteTest extends TestCase
                 return $GLOBALS['app'];
             }
         }
-        Auth::attempt([
-            'login' => 'root',
-            'password' => md5('root')
-        ]);
     }
-
 }
