@@ -8,5 +8,4 @@ Route::add('POST', '/login', [\Controller\Api\ApiLogin::class, 'login']);
 Route::add('POST', '/logout', [\Controller\Api\ApiLogout::class, 'logout']);
 
 
-Route::add('GET', '/student', [\Controller\Api\ApiStudent::class, 'listStudent'])
-    ->middleware('auth', 'can:user');
+Route::add('GET', '/student', [\Controller\Api\ApiStudent::class, 'listStudent']);

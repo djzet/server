@@ -16,10 +16,10 @@ class ApiLogin
                 Auth::user()->update([
                     'token' => $token
                 ]);
-                $token = app()->auth::user()->toArray();
-                (new View())->toJSON($token);
+                $users = app()->auth::user()->toArray();
+                (new View())->toJSON((array)($users['token']));
             } else {
-                (new View())->toJSON((array)'Login error');
+                (new View())->toJSON((array)'Login failed');
             }
         }
     }

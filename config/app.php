@@ -8,7 +8,6 @@ return [
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
         'can' => \Middlewares\CanMiddleware::class,
-        'api' => \Middlewares\ApiMiddleware::class,
     ],
     'validators' => [
         'required' => \Validators\RequireValidator::class,

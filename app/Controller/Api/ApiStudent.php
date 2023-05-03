@@ -9,8 +9,11 @@ class ApiStudent
 {
     public function listStudent(): void
     {
-        $students = Student::all()->toArray();
-
-        (new View())->toJSON($students);
+        if (app()->auth::user()->token) {
+            $students = Student::all()->toArray();
+            (new View())->toJSON($students);
+        } else {
+            (new View())->toJSON(array('Access is denied'));
+        }
     }
 }

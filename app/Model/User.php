@@ -66,7 +66,11 @@ class User extends Model implements IdentityInterface
     }
     public function getToken()
     {
-        $token = app()->auth::user()->token;
+        if(app()->auth::user()->token){
+            $token = app()->auth::user()->token;
+        }else{
+            $token = null;
+        }
         return $token;
     }
 }
