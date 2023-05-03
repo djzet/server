@@ -5,6 +5,7 @@ namespace Controller\User;
 use Model\Discipline;
 use Model\Group;
 use Model\Student;
+use Src\Auth\Auth;
 use Src\View;
 
 class Home

@@ -31,6 +31,16 @@ a {
     font-size: 20px;
 }
 
+.link > div {
+    height: 40px;
+    width: 40px;
+}
+
+.link > div > img {
+    height: 40px;
+    width: 40px;
+}
+
 main {
     display: flex;
     justify-content: center;

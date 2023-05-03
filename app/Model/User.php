@@ -59,5 +59,15 @@ class User extends Model implements IdentityInterface
     {
         return in_array($this->getRole->title, $roles);
     }
+    public function getImg()
+    {
+        $img = explode('/', app()->auth::user()->img);
+        return $img[4];
+    }
+    public function getToken()
+    {
+        $token = app()->auth::user()->token;
+        return $token;
+    }
 }
 

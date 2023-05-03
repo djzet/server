@@ -2,6 +2,7 @@
 
 namespace Src\Auth;
 
+use Exception;
 use Src\Session;
 
 class Auth
@@ -66,6 +67,15 @@ class Auth
     {
         $token = md5(time());
         Session::set('csrf_token', $token);
+        return $token;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function generateToken(): string
+    {
+        $token = bin2hex(random_bytes(16));
         return $token;
     }
 }

@@ -40,6 +40,7 @@ use Src\Auth\Auth;
         else:
             ?>
             <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->login ?>)</a>
+            <div><img src="public/assets/img/<?= app()->auth::user()->getImg() ?>" alt="Ава"></div>
         <?php
         endif;
         ?>

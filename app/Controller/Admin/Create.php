@@ -24,7 +24,36 @@ class Create
                 return new View('site.create',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
-            if (User::create($request->all())) {
+            $path = '../public/assets/img/';
+            $storage = new \Upload\Storage\FileSystem($path);
+            $file = new \Upload\File('img', $storage);
+
+            $new_filename = uniqid();
+            $file->setName($new_filename);
+
+            $file_name = $file->getNameWithExtension($new_filename);
+
+            $data = array(
+                'name'       => $file->getNameWithExtension(),
+                'extension'  => $file->getExtension(),
+                'mime'       => $file->getMimetype(),
+                'size'       => $file->getSize(),
+                'md5'        => $file->getMd5(),
+                'dimensions' => $file->getDimensions()
+            );
+            try {
+                $file->upload();
+            } catch (\Exception $e) {
+                $errors = $file->getErrors();
+            }
+
+            if (User::create([
+                'csrf_token' => $request->csrf_token,
+                'login' => $request->login,
+                'password' => $request->password,
+                'role' => $request->role,
+                'img' => $path . $file_name
+            ])) {
                 app()->route->redirect('/');
                 return false;
             }

@@ -29,6 +29,10 @@ class Login
             }
             //Если удалось аутентифицировать пользователя, то редирект
             if (Auth::attempt($request->all())) {
+                $token = app()->auth::generateToken();
+                Auth::user()->update([
+                    'token' => $token
+                ]);
                 app()->route->redirect('/');
                 return false;
             }

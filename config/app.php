@@ -8,6 +8,7 @@ return [
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
         'can' => \Middlewares\CanMiddleware::class,
+        'api' => \Middlewares\ApiMiddleware::class,
     ],
     'validators' => [
         'required' => \Validators\RequireValidator::class,
@@ -30,5 +31,4 @@ return [
         'db' => \Providers\DBProvider::class,
         'auth' => \Providers\AuthProvider::class,
     ],
-
 ];

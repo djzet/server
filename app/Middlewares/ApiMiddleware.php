@@ -6,14 +6,13 @@ use Exception;
 use Src\Auth\Auth;
 use Src\Request;
 
-class CanMiddleware
-{
+class ApiMiddleware{
     /**
      * @throws Exception
      */
-    public function handle(Request $request, string $roles): void
+    public function handle(Request $request): void
     {
-        if (!Auth::user()->hasRole(explode('|', $roles))) {
+        if (!Auth::user()->getToken()) {
             throw new Exception('Forbidden for you');
         }
     }

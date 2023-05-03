@@ -1,13 +1,14 @@
 <?php
 
-namespace Controller\User;
+namespace Controller\Api;
 
 use Src\Auth\Auth;
 use Src\Request;
+use Src\View;
 
-class Logout
+class ApiLogout
 {
-    public function logout(Request $request): void
+    public function logout(Request $request)
     {
         if (!Auth::attempt($request->all())) {
             $token = null;
@@ -16,6 +17,6 @@ class Logout
             ]);
         }
         Auth::logout();
-        app()->route->redirect('/');
+        (new View())->toJSON((array)'logout');
     }
 }

@@ -16,7 +16,8 @@
     "illuminate/events": "^10.0@dev",
     "nikic/fast-route": "^2.0@dev",
     "djzet/collect": "dev-master",
-    "ext-xdebug": "*"
+    "ext-xdebug": "*",
+    "codeguy/upload": "dev-master"
   },
   "autoload": {
     "psr-4": {
